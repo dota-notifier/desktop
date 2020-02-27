@@ -15,6 +15,7 @@ const createWindow = () => {
     movable: false,
     resizable: false,
     show: false,
+    transparent: true,
     webPreferences: {
       nodeIntegration: true
     },
