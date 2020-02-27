@@ -1,0 +1,46 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:preact/recommended",
+    "prettier/@typescript-eslint"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint",
+    "sort-keys-fix",
+    "sort-destructure-keys",
+    "simple-import-sort",
+    "prettier"
+  ],
+  "rules": {
+    "@typescript-eslint/camelcase": [
+      "error",
+      {
+        "allow": ["img_*"]
+      }
+    ],
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-member-accessibility": "off",
+    "camelcase": [
+      "error",
+      {
+        "allow": ["img_*"]
+      }
+    ],
+    "comma-dangle": "off",
+    "indent": ["error", 2],
+    "no-shadow": "off",
+    "prettier/prettier": "error",
+    "semi": "off",
+    "simple-import-sort/sort": "error",
+    "sort-destructure-keys/sort-destructure-keys": "error",
+    "sort-keys-fix/sort-keys-fix": "error"
+  },
+  "settings": {
+    "react": {
+      "pragma": "h"
+    }
+  }
+}

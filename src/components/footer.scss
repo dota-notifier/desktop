@@ -1,0 +1,33 @@
+footer {
+  margin: 0 2em 2em;
+
+  p {
+    line-height: 1.4;
+    margin: 1em 0;
+    text-align: center;
+  }
+
+  button {
+    appearance: none;
+    background: #f44336;
+    border-radius: 0.25em;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-weight: 600;
+    font: inherit;
+    margin-top: 3em;
+    padding: 1em;
+    transition: 0.2s;
+    width: 100%;
+
+    &:hover {
+      filter: brightness(1.2);
+    }
+
+    &:active {
+      filter: brightness(0.8);
+    }
+  }
+}
