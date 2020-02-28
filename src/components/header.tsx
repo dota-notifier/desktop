@@ -19,7 +19,17 @@ export const Header: FunctionalComponent = () => (
       <a>
         <img
           alt="Close"
-          onClick={() => remote.app.quit()}
+          onClick={async () => {
+            const { response } = await remote.dialog.showMessageBox({
+              buttons: ['Yes', 'No'],
+              message: 'Are you sure you want to quit?',
+              title: 'Dota Notifier'
+            })
+
+            if (response === 0) {
+              remote.app.quit()
+            }
+          }}
           src={img_close_window}
         />
       </a>
