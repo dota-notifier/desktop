@@ -1,11 +1,5 @@
 footer {
-  margin: 0 2em 2em;
-
-  p {
-    line-height: 1.4;
-    margin: 1em 0;
-    text-align: center;
-  }
+  margin: auto 1.5em 1.5em;
 
   button {
     appearance: none;
@@ -15,9 +9,8 @@ footer {
     color: #fff;
     cursor: pointer;
     display: block;
-    font-weight: 600;
     font: inherit;
-    margin-top: 3em;
+    font-weight: 600;
     padding: 1em;
     transition: 0.2s;
     width: 100%;
@@ -28,6 +21,11 @@ footer {
 
     &:active {
       filter: brightness(0.8);
+    }
+
+    &.away {
+      background: #51c97f;
+      color: #000;
     }
   }
 }

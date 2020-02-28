@@ -22,6 +22,10 @@ render(
   <Fragment>
     <Header />
     <Code id={getId()} />
+    <div className="copy">
+      <p>Scan this QR code with the mobile app.</p>
+      <p>Press the button when you're going AFK or when you're back.</p>
+    </div>
     <Footer />
   </Fragment>,
   document.getElementById('root') as Element

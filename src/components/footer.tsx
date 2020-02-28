@@ -1,11 +1,16 @@
 import './footer.scss'
 
 import { FunctionalComponent, h } from 'preact'
+import { useState } from 'preact/hooks'
 
-export const Footer: FunctionalComponent = () => (
-  <footer>
-    <p>Scan this QR code with the mobile app.</p>
-    <p>Press the button when you're going AFK or when you're back.</p>
-    <button>I'm AFK</button>
-  </footer>
-)
+export const Footer: FunctionalComponent = () => {
+  const [away, setAway] = useState(false)
+
+  return (
+    <footer>
+      <button className={away ? 'away' : 'here'} onClick={() => setAway(!away)}>
+        {away ? `I'm back` : `I'm away`}
+      </button>
+    </footer>
+  )
+}

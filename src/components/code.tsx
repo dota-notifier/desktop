@@ -15,8 +15,8 @@ export const Code: FunctionalComponent<Props> = ({ id }) => {
     qrcode
       .toDataURL(id, {
         color: {
-          dark: '#f44336',
-          light: '#000'
+          dark: '#fff',
+          light: '#f44336'
         },
         width: 200
       })
