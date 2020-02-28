@@ -9,7 +9,6 @@ const createWindow = () => {
   const { bounds } = screen.getPrimaryDisplay()
 
   window = new BrowserWindow({
-    backgroundColor: '#1f1f23',
     frame: false,
     height,
     movable: false,
