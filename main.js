@@ -1,14 +1,12 @@
 const { BrowserWindow, app, screen } = require('electron')
 
-let window
-
 const createWindow = () => {
   const height = 600
   const width = 400
 
   const { bounds } = screen.getPrimaryDisplay()
 
-  window = new BrowserWindow({
+  const window = new BrowserWindow({
     frame: false,
     height,
     movable: false,

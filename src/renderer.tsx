@@ -25,7 +25,8 @@ render(
     <div className="copy">
       <p>Scan this QR code with the mobile app.</p>
       <p>
-        Press the button when you&apos;re going AFK or when you&apos;re back.
+        Start Dota 2. Press the button when you&apos;re going away or when
+        you&apos;re back.
       </p>
     </div>
     <Footer />
