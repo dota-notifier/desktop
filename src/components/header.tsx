@@ -1,5 +1,6 @@
 import './header.scss'
 
+import { remote } from 'electron'
 import { FunctionalComponent, h } from 'preact'
 
 import { img_close_window, img_minimize_window } from '../assets'
@@ -9,10 +10,18 @@ export const Header: FunctionalComponent = () => (
     <h1>Dota Notifier</h1>
     <nav>
       <a>
-        <img src={img_minimize_window} alt="Minimize" />
+        <img
+          alt="Minimize"
+          onClick={() => remote.getCurrentWindow().minimize()}
+          src={img_minimize_window}
+        />
       </a>
       <a>
-        <img src={img_close_window} alt="Close" />
+        <img
+          alt="Close"
+          onClick={() => remote.app.quit()}
+          src={img_close_window}
+        />
       </a>
     </nav>
   </header>
