@@ -33,6 +33,14 @@
     "indent": ["error", 2],
     "no-shadow": "off",
     "prettier/prettier": "error",
+    "react/jsx-indent-props": [2, 2],
+    "react/jsx-no-bind": [
+      "error",
+      {
+        "allowArrowFunctions": true
+      }
+    ],
+    "react/jsx-sort-props": "error",
     "semi": "off",
     "simple-import-sort/sort": "error",
     "sort-destructure-keys/sort-destructure-keys": "error",
