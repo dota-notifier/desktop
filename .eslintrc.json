@@ -3,7 +3,7 @@
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:preact/recommended",
+    "plugin:react/recommended",
     "prettier/@typescript-eslint"
   ],
   "parser": "@typescript-eslint/parser",
@@ -33,13 +33,6 @@
     "indent": ["error", 2],
     "no-shadow": "off",
     "prettier/prettier": "error",
-    "react/jsx-indent-props": [2, 2],
-    "react/jsx-no-bind": [
-      "error",
-      {
-        "allowArrowFunctions": true
-      }
-    ],
     "react/jsx-sort-props": "error",
     "semi": "off",
     "simple-import-sort/sort": "error",

@@ -24,7 +24,9 @@ render(
     <Code id={getId()} />
     <div className="copy">
       <p>Scan this QR code with the mobile app.</p>
-      <p>Press the button when you're going AFK or when you're back.</p>
+      <p>
+        Press the button when you&apos;re going AFK or when you&apos;re back.
+      </p>
     </div>
     <Footer />
   </Fragment>,
