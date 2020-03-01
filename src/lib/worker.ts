@@ -1,23 +1,29 @@
 import { BrowserWindow, remote } from 'electron'
 
 class Worker {
-  window?: BrowserWindow
+  worker?: BrowserWindow
 
   start() {
     const { BrowserWindow } = remote
 
-    this.window = new BrowserWindow({
-      show: false,
+    this.worker = new BrowserWindow({
+      // show: false,
       webPreferences: {
         nodeIntegration: true
       }
     })
 
-    this.window.loadFile('dist/worker.html')
+    this.worker.loadFile('dist/worker.html')
+
+    setTimeout(() => {
+      this.worker?.webContents.send('worker', 'test')
+    }, 3000)
   }
 
   stop() {
-    this.window?.close()
+    this.worker?.webContents.send('worker', 'stop')
+
+    this.worker?.close()
   }
 }
 
