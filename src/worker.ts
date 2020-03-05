@@ -2,11 +2,11 @@ import { desktopCapturer, ipcRenderer, remote } from 'electron'
 import fs from 'fs-extra'
 import { createWorker } from 'tesseract.js'
 
+import { functions } from './lib'
+
 let timer: NodeJS.Timeout
 
 const start = async () => {
-  console.log('start')
-
   const height = 720
   const width = 1280
 
@@ -19,7 +19,10 @@ const start = async () => {
   if (dota) {
     const basePath = remote.app.getPath('userData')
 
-    const worker = createWorker()
+    const worker = createWorker({
+      cacheMethod: 'langdata',
+      langPath: 'langdata'
+    })
 
     await worker.load()
     await worker.loadLanguage('eng')
@@ -54,11 +57,9 @@ const start = async () => {
 
       canvas.style.backgroundColor = 'magenta'
       canvas.width = width / 3
-      canvas.height = height * 0.5
+      canvas.height = height / 3
 
-      canvas.getContext('2d')?.drawImage(video, -(width / 3), 0)
-
-      document.body.append(canvas)
+      canvas.getContext('2d')?.drawImage(video, -width / 3, -height / 3)
 
       const data = canvas.toDataURL().slice(22)
 
@@ -68,19 +69,17 @@ const start = async () => {
 
       await fs.outputFile(file, buffer)
 
-      const start = Date.now()
-
       const {
         data: { text }
       } = await worker.recognize(file)
 
-      const copy = document.createElement('div')
-
-      copy.innerText = `${Date.now() - start}: ${text}`
-
-      document.body.append(copy)
-
       await fs.remove(file)
+
+      if (text.includes('YOUR GAME IS READY')) {
+        await functions.notify('MATCH_FOUND')
+      } else if (text.includes('READY CHECK')) {
+        await functions.notify('READY_CHECK')
+      }
 
       timer = setTimeout(() => process(), 2000)
     }
@@ -92,8 +91,6 @@ const start = async () => {
 start()
 
 const stop = () => {
-  console.log('stop')
-
   if (timer) {
     clearTimeout(timer)
   }
