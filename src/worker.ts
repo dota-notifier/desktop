@@ -19,10 +19,7 @@ const start = async () => {
   if (dota) {
     const basePath = remote.app.getPath('userData')
 
-    const worker = createWorker({
-      cacheMethod: 'langdata',
-      langPath: 'langdata'
-    })
+    const worker = createWorker()
 
     await worker.load()
     await worker.loadLanguage('eng')

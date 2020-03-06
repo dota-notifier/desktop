@@ -1,11 +1,18 @@
 {
   "name": "dota-notifier-desktop",
+  "version": "0.0.1",
   "private": true,
   "license": "MIT",
   "main": "main.js",
+  "author": {
+    "name": "Ali Zahid",
+    "email": "hi@designplox.co",
+    "url": "https://alizahid.dev"
+  },
   "scripts": {
     "build": "parcel build src/*.html --target electron --public-url .",
     "dev": "concurrently 'yarn watch' 'electron .'",
+    "package": "yarn build && env-cmd electron-builder",
     "lint": "eslint src --ext .ts,tsx",
     "start": "electron .",
     "watch": "parcel watch src/*.html --target electron --public-url ."
@@ -28,6 +35,8 @@
     "autoprefixer": "^9.7.4",
     "concurrently": "^5.1.0",
     "electron": "^8.0.2",
+    "electron-builder": "^22.4.0",
+    "env-cmd": "^10.1.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-prettier": "^3.1.2",
@@ -47,5 +56,16 @@
     "hooks": {
       "pre-commit": "pretty-quick --staged"
     }
+  },
+  "build": {
+    "appId": "dev.alizahid.dota-notifier",
+    "directories": {
+      "output": "build"
+    },
+    "files": [
+      "dist/**/*",
+      "main.js"
+    ],
+    "productName": "Dota Notifier"
   }
 }

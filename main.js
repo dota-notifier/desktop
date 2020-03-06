@@ -9,6 +9,7 @@ const createWindow = () => {
   const window = new BrowserWindow({
     frame: false,
     height,
+    icon: 'dota.ico',
     movable: false,
     resizable: false,
     show: false,

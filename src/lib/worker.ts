@@ -7,7 +7,7 @@ class Worker {
     const { BrowserWindow } = remote
 
     this.worker = new BrowserWindow({
-      // show: false,
+      show: false,
       webPreferences: {
         nodeIntegration: true
       }
@@ -15,15 +15,15 @@ class Worker {
 
     this.worker.loadFile('dist/worker.html')
 
-    setTimeout(() => {
-      this.worker?.webContents.send('worker', 'test')
-    }, 3000)
+    remote.app.on('quit', () => this.stop())
   }
 
   stop() {
     this.worker?.webContents.send('worker', 'stop')
 
     this.worker?.close()
+
+    this.worker = undefined
   }
 }
 
